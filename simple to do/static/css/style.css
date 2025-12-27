@@ -1,0 +1,238 @@
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+body {
+    background-color: #a3a2a2;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #686868;
+    color: white;
+    text-align: center;
+    padding: 20px; /* Reduje un poco el padding */
+    font-size: 24px;
+    width: 100%;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Asegura que el padding no agrande el ancho */
+}
+
+/* =========================================
+   FORMULARIO AGREGAR TAREA (Input Superior)
+   ========================================= */
+.agg_tareas {
+    margin-top: 20px;
+    display: flex; 
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px;
+    flex-wrap: wrap; /* NUEVO: Permite que baje de línea en móviles */
+}
+
+.agg_tareas input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    /* NUEVO: Flexible pero con límite */
+    flex-grow: 1; 
+    max-width: 400px; 
+    min-width: 200px;
+}
+
+.agg_tareas button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555555;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el texto del botón se parta */
+}
+
+/* =========================================
+   CONTENEDORES Y TARJETAS
+   ========================================= */
+.posiciones {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Asegura que ocupe el ancho */
+    padding-bottom: 30px; /* Espacio al final para scrolear */
+}
+
+/* Contenedor de la lista (UL) o del Login/Registro */
+.posiciones ul, 
+.contenedor-tarjeta {
+    list-style: none;
+    padding: 0 15px; /* Margen a los lados en celular */
+    width: 100%;     /* Ocupa todo el ancho posible */
+    max-width: 600px; /* ...pero detente en 600px (PC) */
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+/* La tarjeta individual (Login, Registro o Tarea) */
+.tarea-fila-card { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #e0e0e0;
+    color: #333333;
+    
+    /* NUEVO: Manejo de desborde */
+    word-wrap: break-word; 
+}
+
+/* El texto de la tarea */
+.tarea-texto {
+    font-size: 1.1em;
+    flex: 1; /* Toma el espacio disponible */
+    margin-right: 15px; /* Separa el texto de los botones */
+}
+
+/* Grupo de botones */
+.botones {
+    display: flex;
+    gap: 5px;
+}
+
+.botones button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #686868; 
+    color: white;
+    font-size: 0.9em;
+}
+
+/* =========================================
+   MEDIA QUERY (MÓVILES)
+   ========================================= */
+/* Cuando la pantalla sea menor a 600px (celulares) */
+@media (max-width: 600px) {
+    
+    .tarea-fila-card {
+        flex-direction: column; /* Apila elementos verticalmente */
+        align-items: flex-start; /* Alinea a la izquierda */
+        gap: 15px; /* Espacio entre el texto y los botones */
+        text-align: left !important; /* Fuerza alineación izquierda */
+    }
+
+    .tarea-texto {
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .botones {
+        width: 100%;
+        justify-content: space-between; /* Botones estirados o separados */
+    }
+
+    .botones button {
+        flex-grow: 1; /* Botones grandes fáciles de tocar */
+    }
+    
+    /* Ajustes específicos para el Login/Registro en móvil */
+    .form-input {
+        width: 100%;
+    }
+}
+
+/* =========================================
+   ESTILOS ESPECÍFICOS PARA LOGIN Y REGISTRO
+   ========================================= */
+
+.tarjeta-auth {
+    background-color: #e0e0e0;
+    
+    /* CONTROL DE TAMAÑO Y POSICIÓN */
+    max-width: 400px;       /* Ancho máximo fijo para que no se estire en PC */
+    width: 90%;             /* En celular ocupará el 90% de la pantalla */
+    margin: 50px auto;      /* 'auto' a los lados es lo que lo CENTRA en la pantalla */
+    
+    /* ESTÉTICA */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Inputs dentro del login/registro */
+.tarjeta-auth input[type="text"],
+.tarjeta-auth input[type="password"] {
+    width: 100%;            /* Ocupa todo el ancho de la tarjeta (400px max) */
+    padding: 12px;          /* Más espacio interno para que se vea moderno */
+    margin-bottom: 15px;    /* Separación entre inputs */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Evita que el padding rompa el diseño */
+}
+
+/* Botón del login/registro */
+.tarjeta-auth button {
+    width: 100%;            /* Botón ancho completo */
+    padding: 12px;
+    background-color: #555555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tarjeta-auth button:hover {
+    background-color: #333;
+}
+
+/* =========================================
+   ESTILOS PARA MENSAJES DE ERROR
+   ========================================= */
+
+.h1_500{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 48px;
+    color: #d9534f;
+}
+.h1_404{
+    text-align: center;
+    margin-top: 50px;
+    font-size: 48px;
+    color: #e69b32;
+}
+
+/* =========================================
+   ESTILOS PARA MENSAJES FLASH (ALERTAS)
+   ========================================= */
+.alerta {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Estilo para errores (categoría "error") */
+.alerta-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilo para éxito (categoría "exito") */
+.alerta-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

@@ -1,0 +1,61 @@
+{% extends './base.html' %}
+
+
+{% block body %}
+
+<form class="agg_tareas" action="" method="post">
+
+    <label for="tarea"> agregar tarea:</label>
+    <input type="text"  name="tarea">
+
+    <button type="submit">enviar</button>
+</form>
+
+<div class="cerras_secion"style="text-align: center; margin-bottom: 15px; margin-top: 40px;">
+    <span style="margin-right: 10px;">Hola, Usuario</span>
+    <form action="{{ url_for('logout_usuario') }}" method="post" style="display: inline;">
+        <button type="submit" style="background-color: #d9534f; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">
+            Cerrar Sesión
+        </button>
+    </form>
+</div>
+
+<div class="posiciones">   
+    <ul> 
+        {% for tarea in tareas %}
+        
+        <div class="tarea-fila-card"> 
+        
+            <span 
+                class="tarea-texto" 
+                {% if tarea.completada %}
+                    style="text-decoration: line-through; color: gray;"
+                {% endif %}
+            >
+                {{ tarea.contenido }}
+            </span>
+            
+            <div class="botones">
+                <form class="boton" method="post" action="{{ url_for('eliminar_tarea', id_tarea = tarea.id) }}" >
+                    <button type="submit">borrar</button>
+                </form>
+
+                <form method="post" action="{{ url_for('completar_tarea', tarea_id = tarea.id) }}">
+                    <button class="boton" type="submit">
+                        {% if tarea.completada %}
+                            deshacer
+                        {% else %}
+                            marcar como completada  
+                        {% endif %}
+                    </button>
+                </form>
+            </div>
+            
+        </div> 
+
+        {% endfor %}  
+    </ul>
+</div>
+
+
+{% endblock %}

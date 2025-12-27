@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+
+{% block body %}
+    <div class="tarjeta-auth">
+        <h2>Registro</h2>
+        <form action="{{ url_for('registro_usuario') }}" method="post">
+            <input type="text" name="nombre" placeholder="Nombre de usuario" required>
+            <input type="password" name="contraseña" placeholder="Contraseña" required>
+            
+            <button type="submit">Registrarse</button>
+        </form>
+        <p style="margin-top: 15px;">
+            ¿Ya tienes cuenta? <a href="{{ url_for('login_usuario') }}">Inicia sesión</a>
+        </p>
+    </div>
+{% endblock %}
