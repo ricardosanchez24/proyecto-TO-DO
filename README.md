@@ -5,31 +5,31 @@
 ![MySQL](https://img.shields.io/badge/DB-MySQL-orange.svg)
 ![JWT](https://img.shields.io/badge/Auth-JWT-green.svg)
 
-Este es un gestor de tareas (To-Do List) robusto desarrollado con un enfoque en el **Backend**. La aplicación permite a los usuarios registrarse, iniciar sesión de forma segura y gestionar sus tareas personales con persistencia de datos profesional.
+Este es un sistema de gestión de tareas desarrollado con un enfoque en el **Backend**, diseñado para ofrecer una experiencia de usuario segura y persistente. La aplicación permite a los usuarios gestionar sus tareas personales tras un proceso de autenticación robusto.
 
-## 🚀 Características principales
+## 🚀 Características Principales
 
-- **Sistema de Autenticación:** Registro e inicio de sesión con encriptación de contraseñas mediante `werkzeug.security`.
-- **Seguridad con JWT:** Gestión de sesiones mediante **JSON Web Tokens** almacenados en cookies seguras, con redirección automática si el token expira.
-- **Persistencia de Datos:** Integración con **MySQL** utilizando el ORM **SQLAlchemy** para un manejo eficiente de la base de datos.
-- **Operaciones CRUD:** Los usuarios pueden agregar, visualizar, marcar como completadas y eliminar sus propias tareas de forma independiente.
-- **Arquitectura Limpia:** Uso de plantillas base (**Jinja2**) para evitar repetición de código y estilos CSS centralizados.
-- **Manejo de Errores:** Páginas personalizadas para errores de servidor (500) y rutas no encontradas (404).
+- **Autenticación Segura:** Sistema de registro e inicio de sesión con contraseñas encriptadas mediante `generate_password_hash`.
+- **Seguridad con JWT:** Implementación de **JSON Web Tokens** para el manejo de sesiones mediante cookies, incluyendo protección y redirección automática si el token expira o no existe.
+- **Base de Datos Relacional:** Uso de **MySQL** para la persistencia de datos y **SQLAlchemy** como ORM para realizar operaciones CRUD eficientes.
+- **Funcionalidad Completa (CRUD):** Los usuarios pueden añadir tareas, marcarlas como completadas (con efecto visual de tachado) y eliminarlas de la base de datos.
+- **Interfaz Responsiva:** Diseño adaptado a dispositivos móviles y escritorio mediante el uso de Media Queries en CSS.
+- **Gestión de Errores:** Páginas personalizadas para manejar errores de rutas no encontradas (404) y fallos internos del servidor (500).
 
-## 🛠️ Tecnologías utilizadas
+## 🛠️ Tecnologías Utilizadas
 
-- **Backend:** Python, Flask.
-- **Base de Datos:** MySQL con PyMySQL.
+- **Backend:** Python 3, Flask.
+- **Base de Datos:** MySQL con el conector PyMySQL.
 - **ORM:** Flask-SQLAlchemy.
-- **Seguridad:** Flask-JWT-Extended.
-- **Frontend:** HTML5, CSS3 (Diseño responsivo).
+- **Seguridad:** Flask-JWT-Extended y Werkzeug Security.
+- **Frontend:** HTML5, CSS3 y el motor de plantillas Jinja2.
 
-## 📋 Requisitos previos
+## 📋 Requisitos Previos
 
-Asegúrate de tener instalado:
-- Python 3.x
-- MySQL Server
+Necesitarás tener instalado:
+- **Python 3.x**
+- **MySQL Server** activo.
 
-Instala las dependencias necesarias:
+Instala las dependencias con el siguiente comando:
 ```bash
 pip install flask flask_sqlalchemy flask_jwt_extended pymysql
